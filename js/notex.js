@@ -30,6 +30,9 @@ const wrongFx = new Audio('./sound/quack.mp3');
 let currentNote = '';
 let lastNote = '';
 let answered = false;
+let scoreRight = 0;
+let scoreWrong = 0;
+
 
 
 async function doRandomQuestion() {
@@ -101,13 +104,26 @@ function validateAnswer(){
         let cleanInput = input.replace('fa', 'fá').replace('mi', 'mí').replace('re', 'ré').replace('si', 'sí').replace('do', 'dó').replace('la', 'lá');
         if (cleanInput === currentNote){
             console.log(">> Correct!");
+            scoreRight++;
             correctFx.play()
         } else {
             console.log(">> Wrong!");
+            scoreWrong++;
             wrongFx.play()
         }
+        updateScore();
         doRandomQuestion();
     }
+}
+
+function updateScore(){
+    console.log('[Updating Score]');
+
+    const wrong = document.querySelector("#score-wrong");
+    wrong.innerText = scoreWrong;
+
+    const right = document.querySelector("#score-correct");
+    right.innerText = scoreRight;
 }
 
 function start(){
