@@ -101,7 +101,7 @@ function validateAnswer(){
         console.log(`>> User\'s input: ${input}`);
         console.log(`>> Correct Answer: ${currentNote}`);
         
-        let cleanInput = input.replace('fa', 'fá').replace('mi', 'mí').replace('re', 'ré').replace('si', 'sí').replace('do', 'dó').replace('la', 'lá');
+        let cleanInput = input.toLowerCase().replace('fa', 'fá').replace('mi', 'mí').replace('re', 'ré').replace('si', 'sí').replace('do', 'dó').replace('la', 'lá');
         if (cleanInput === currentNote){
             console.log(">> Correct!");
             scoreRight++;
