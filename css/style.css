@@ -97,6 +97,11 @@ body {
 }
 
 @media screen and (max-width:720px){
+    body {
+        padding: 10px 0;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
     #container {
         width: 95%;
     }
