@@ -96,7 +96,8 @@ function validateAnswer(){
         answered = true;
         console.log('[Validating Answer]');
         
-        const input = document.querySelector('#note-input').value;
+        const inputField = document.querySelector('#note-input');
+        const input = inputField.value;
         
         console.log(`>> User\'s input: ${input}`);
         console.log(`>> Correct Answer: ${currentNote}`);
@@ -111,6 +112,8 @@ function validateAnswer(){
             scoreWrong++;
             wrongFx.play()
         }
+        
+        inputField.value = '';
         updateScore();
         doRandomQuestion();
     }
